@@ -1291,6 +1291,32 @@
           : 'display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:#1B2A4A;padding:16px 24px 20px;gap:16px;border-bottom:1px solid rgba(255,255,255,0.1);z-index:99;';
       });
     }
+
+    // AJAX form submission with inline success state
+    document.querySelectorAll('form[action*="formspree"]').forEach(function(form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        if (btn) { btn.disabled = true; btn.textContent = 'Submitting...'; }
+        try {
+          var response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (response.ok) {
+            var wrap = form.closest('.hero__form-wrap') || form.closest('.cta__form') || form.parentNode;
+            wrap.innerHTML = '<div style="text-align:center;padding:32px 16px;"><div style="font-size:2.5rem;margin-bottom:12px;">✅</div><h3 style="color:#fff;font-size:1.3rem;margin:0 0 8px;">You\'re on the list!</h3><p style="color:rgba(255,255,255,0.75);font-size:1rem;margin:0;">We\'ll email you the moment we launch — plus early-access pricing.</p></div>';
+          } else {
+            if (btn) { btn.disabled = false; btn.textContent = 'Try Again'; }
+            alert('Something went wrong. Please try again.');
+          }
+        } catch(err) {
+          if (btn) { btn.disabled = false; btn.textContent = 'Try Again'; }
+          alert('Something went wrong. Please try again.');
+        }
+      });
+    });
   </script>
 
 </body>
