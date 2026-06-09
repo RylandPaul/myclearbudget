@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Get our free guide — 5 Money Moves to Make This Week. Instant download. No spam." />
+  <title>Free Guide — 5 Money Moves to Make This Week | MyClearBudget</title>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TZXQYHPH4L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TZXQYHPH4L');
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:  #1B2A4A;
+      --gold:  #F4A61F;
+      --white: #FFFFFF;
+      --light: #F8F9FB;
+      --gray:  #6B7280;
+      --dark:  #1F2937;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* ── Nav ──────────────────────────────────────── */
+    nav {
+      background: var(--navy);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      color: var(--white);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .nav-brand span { color: var(--gold); }
+    .nav-link {
+      color: var(--gold);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .nav-link:hover { text-decoration: underline; }
+
+    /* ── Hero ─────────────────────────────────────── */
+    .hero {
+      background: var(--navy);
+      padding: 64px 24px 72px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(1.9rem, 5vw, 3rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.18;
+      max-width: 680px;
+      margin: 0 auto 16px;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.82);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+    }
+
+    /* ── Form card ────────────────────────────────── */
+    .form-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 36px 32px;
+      max-width: 480px;
+      margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+    .form-card h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .form-card p.sub {
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+    .form-card input[type="email"] {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #E5E7EB;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-card input[type="email"]:focus {
+      border-color: var(--navy);
+    }
+    .form-card button {
+      width: 100%;
+      padding: 15px 20px;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .form-card button:hover  { background: #e09900; }
+    .form-card button:active { transform: scale(0.98); }
+    .form-card .privacy {
+      font-size: 0.78rem;
+      color: var(--gray);
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    /* ── Success state ────────────────────────────── */
+    .success-box {
+      display: none;
+      text-align: center;
+      padding: 8px 0;
+    }
+    .success-box .check {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+    .success-box h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .success-box p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+    .download-btn {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .download-btn:hover { background: #253a63; }
+
+    /* ── What you'll get ──────────────────────────── */
+    .whats-inside {
+      background: var(--light);
+      padding: 64px 24px;
+    }
+    .whats-inside .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .whats-inside h2 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .whats-inside .tagline {
+      text-align: center;
+      color: var(--gray);
+      font-size: 1.0rem;
+      margin-bottom: 44px;
+    }
+    .moves-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .move-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 24px;
+      border-left: 4px solid var(--gold);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+    .move-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .move-card h3 {
+      font-size: 1.0rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .move-card p {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.55;
+    }
+
+    /* ── Trust strip ──────────────────────────────── */
+    .trust {
+      background: var(--navy);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .trust p {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.9rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .trust strong { color: var(--gold); }
+
+    /* ── Also available ───────────────────────────── */
+    .also-available {
+      padding: 64px 24px;
+      background: var(--white);
+    }
+    .also-available .container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .also-available h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .also-available p {
+      color: var(--gray);
+      margin-bottom: 32px;
+    }
+    .product-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .product-link {
+      display: inline-block;
+      background: var(--light);
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid #E5E7EB;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .product-link:hover {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+    .product-link .price {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ── Footer ───────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    footer p {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 520px) {
+      .form-card { padding: 28px 20px; }
+      .hero { padding: 44px 16px 56px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a href="/" class="nav-brand">My<span>Clear</span>Budget</a>
+    <a href="/" class="nav-link">← Back to shop</a>
+  </nav>
+
+  <!-- Hero + Form -->
+  <section class="hero">
+    <div class="hero-badge">Free Download</div>
+    <h1>5 Money Moves to<br><span>Make This Week</span></h1>
+    <p>Simple, actionable steps to get financially organized — fast. Takes less than 30 minutes per move. No finance degree required.</p>
+
+    <!-- Form Card -->
+    <div class="form-card">
+      <!-- Sign-up form (Formspree) -->
+      <div id="signup-form-wrap">
+        <h2>Get the free guide →</h2>
+        <p class="sub">Enter your email and we'll send it right over.</p>
+        <form
+          id="freebie-form"
+          action="https://formspree.io/f/xlgkdkzd"
+          method="POST"
+        >
+          <input
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+            required
+            autocomplete="email"
+          />
+          <!-- Hidden field to tag this as a freebie signup -->
+          <input type="hidden" name="source" value="free-guide-page" />
+          <input type="hidden" name="_subject" value="New freebie signup — 5 Money Moves" />
+          <button type="submit">Send me the free guide ↓</button>
+        </form>
+        <p class="privacy">🔒 No spam. Unsubscribe anytime. We respect your privacy.</p>
+      </div>
+
+      <!-- Success state (shown after submit) -->
+      <div class="success-box" id="success-box">
+        <div class="check">🎉</div>
+        <h3>You're in! Download below.</h3>
+        <p>Your free guide is ready. Click the button to download it now.</p>
+        <a href="/5-money-moves.pdf" download="5_Money_Moves_to_Make_This_Week.pdf" class="download-btn">
+          ↓ Download: 5 Money Moves (PDF)
+        </a>
+        <p style="margin-top:16px; font-size:0.82rem; color:#9CA3AF;">
+          Check your inbox too — we'll send tips and exclusive deals your way.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's inside -->
+  <section class="whats-inside">
+    <div class="container">
+      <h2>What's Inside the Guide</h2>
+      <p class="tagline">Five moves you can make this week — with or without MyClearBudget.</p>
+      <div class="moves-grid">
+        <div class="move-card">
+          <div class="move-num">01</div>
+          <h3>Write Down Every Account</h3>
+          <p>Make your financial picture concrete. Banks, credit cards, loans, retirement — all of it in one list.</p>
+        </div>
+        <div class="move-card">
+          <div class="move-num">02</div>
+          <h3>Track Last Week's Spending</h3>
+          <p>Pull up your bank app and record every transaction from the last 7 days. Don't judge it — just see it.</p>
+        </div>
+        <div class="move-card">
+          <div class="move-num">03</div>
+          <h3>Set ONE Savings Goal</h3>
+          <p>Not five. Pick your most important goal, set a target date, and calculate your monthly saving requirement.</p>
+        </div>
+        <div class="move-card">
+          <div class="move-num">04</div>
+          <h3>Cancel One Subscription</h3>
+          <p>Find one recurring charge you barely use and cancel it today. That's $120–$240/year back in your pocket.</p>
+        </div>
+        <div class="move-card">
+          <div class="move-num">05</div>
+          <h3>Set Up a Basic Budget</h3>
+          <p>It doesn't have to be perfect — it just has to exist. A rough plan beats no plan every single time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust strip -->
+  <div class="trust">
+    <p>This guide was designed by the team behind <strong>MyClearBudget</strong> — the same people who built a complete, automated personal finance spreadsheet that's already helping real people get clear on their money. No fluff. No filler.</p>
+  </div>
+
+  <!-- Also available -->
+  <section class="also-available">
+    <div class="container">
+      <h2>Ready to Go Deeper?</h2>
+      <p>MyClearBudget gives you the full system — automated budget tracking, debt payoff, savings goals, and net worth in one spreadsheet.</p>
+      <div class="product-links">
+        <a href="https://buy.stripe.com/7sYfZaeZ6cUb89t7uH57W00" class="product-link" target="_blank">
+          Personal Budget Tracker <span class="price">$17</span>
+        </a>
+        <a href="https://buy.stripe.com/00w14g7wEbQ73Td16j57W01" class="product-link" target="_blank">
+          Debt Snowball Calculator <span class="price">$14</span>
+        </a>
+        <a href="https://buy.stripe.com/aFa28k5owaM33TdbKX57W02" class="product-link" target="_blank">
+          Savings Goal Tracker <span class="price">$14</span>
+        </a>
+        <a href="https://buy.stripe.com/3cI9AM2ckbQ7fBVbKX57W04" class="product-link" target="_blank">
+          Side Hustle Income Tracker <span class="price">$15</span>
+        </a>
+        <a href="https://buy.stripe.com/eVqeV6dV29HZ89tdT557W06" class="product-link" target="_blank">
+          Complete Bundle — Best Value <span class="price">$49</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      <a href="/">MyClearBudget</a> &nbsp;|&nbsp;
+      <a href="mailto:myclearbudget@gmail.com">myclearbudget@gmail.com</a> &nbsp;|&nbsp;
+      <a href="/privacy.html">Privacy</a> &nbsp;|&nbsp;
+      <a href="/terms.html">Terms</a><br><br>
+      © 2026 Trailhead Standard, LLC. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- Form submit handler -->
+  <script>
+    const form = document.getElementById('freebie-form');
+    const formWrap = document.getElementById('signup-form-wrap');
+    const successBox = document.getElementById('success-box');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+      const btn = form.querySelector('button');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          // Track conversion in GA
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'freebie_signup', {
+              event_category: 'lead',
+              event_label: '5_money_moves'
+            });
+          }
+          // Show success state
+          formWrap.style.display = 'none';
+          successBox.style.display = 'block';
+        } else {
+          btn.textContent = 'Try again — something went wrong';
+          btn.disabled = false;
+        }
+      } catch(err) {
+        btn.textContent = 'Try again — something went wrong';
+        btn.disabled = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
