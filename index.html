@@ -6,6 +6,46 @@
   <meta name="description" content="MyClearBudget helps you finally understand where your money goes. A personal finance tool built for real life — not spreadsheet nerds." />
   <title>MyClearBudget — Stop Guessing. Start Knowing. Take Control of Your Money.</title>
 
+  <!-- ============================================================
+       MAILERLITE UNIVERSAL TRACKING SNIPPET
+       ============================================================
+       ACTION REQUIRED — Captain Savage:
+
+       Step 1: Log in to MailerLite → https://app.mailerlite.com
+       Step 2: Go to Forms → Embedded forms tab → Create form
+       Step 3: Name it "MyClearBudget Early Access"
+       Step 4: Select form type: Embedded form → Save and continue
+       Step 5: Select subscriber group → "MyClearBudget Early Access" → Continue
+       Step 6: Design your form (optional — or click Next to skip)
+       Step 7: Click "Overview" on your finished form
+       Step 8: Scroll to "Javascript snippet" — you'll see TWO code blocks:
+
+          SNIPPET A (Universal tracking — goes HERE in <head>, replace the placeholder below):
+          <script> ... (large block with your account ID) ... </script>
+
+          SNIPPET B (Form placement — goes WHERE you want the form on the page,
+          see the two hero and CTA form placement comments further below):
+          <div class="ml-embedded" data-form="XXXXXX"></div>
+
+       Step 9: Replace the placeholder <script> block below with SNIPPET A
+       Step 10: Replace each <div> placeholder in the hero and CTA sections with SNIPPET B
+       Step 11: Test on the live site — the MailerLite form will appear alongside (or replace)
+                the Formspree form. You may choose to hide the Formspree form once MailerLite
+                is confirmed working (add display:none to the Formspree <form> tag).
+
+       The current Formspree form continues to work until you're ready to switch.
+       ============================================================ -->
+
+  <!-- REPLACE THIS BLOCK with your MailerLite Universal Snippet (Snippet A from the form Overview page) -->
+  <!-- Example structure (your actual script will have your unique account ID):
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},
+    l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);
+    })(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', 'YOUR_ACCOUNT_ID_HERE');
+  </script>
+  END MAILERLITE UNIVERSAL SNIPPET — replace 'YOUR_ACCOUNT_ID_HERE' with your actual ID -->
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TZXQYHPH4L"></script>
   <script>
@@ -929,6 +969,25 @@
 
       <div class="hero__form-wrap" id="get-access">
         <h3>Be the first to know when we launch.</h3>
+
+        <!-- ============================================================
+             MAILERLITE EMBEDDED FORM — HERO SECTION
+             ============================================================
+             ACTION REQUIRED — Captain Savage:
+             After completing the MailerLite setup steps in the <head> above,
+             paste SNIPPET B (the small <div> code) from the form Overview page HERE.
+             It will look like:
+               <div class="ml-embedded" data-form="XXXXXX"></div>
+
+             Once the MailerLite form is confirmed working, you can either:
+             (A) Keep both forms (Formspree below + MailerLite above) — belt & suspenders
+             (B) Remove the Formspree form below entirely and use only MailerLite
+
+             Recommended: Start with (A), then switch to (B) after confirming MailerLite
+             is capturing subscribers in your dashboard.
+             ============================================================ -->
+        <!-- PASTE MailerLite Snippet B HERE: <div class="ml-embedded" data-form="YOUR_FORM_ID"></div> -->
+
         <form action="https://formspree.io/f/xlgkdkzd" method="POST">
           <input type="hidden" name="_subject" value="New MyClearBudget Early Access Signup" />
           <input type="hidden" name="_next" value="https://myclearbudget.com/?success=true" />
@@ -1153,30 +1212,35 @@
           <h3 style="font-family:var(--font-head);font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:6px;">Personal Budget Tracker</h3>
           <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:auto;padding-bottom:16px;">8 tabs, 38 categories, annual tracking & net worth.</p>
           <span style="font-family:var(--font-head);font-weight:800;font-size:1.3rem;color:var(--navy);">$17</span>
+          <a href="https://buy.stripe.com/7sYfZaeZ6cUb89t7uH57W00" target="_blank" style="display:block;margin-top:14px;background:var(--accent);color:#fff;font-family:var(--font-head);font-weight:700;font-size:0.9rem;text-align:center;padding:10px 16px;border-radius:8px;text-decoration:none;">Buy Now →</a>
         </div>
         <div style="background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:28px 24px;text-align:left;display:flex;flex-direction:column;">
           <div style="font-size:1.5rem;margin-bottom:10px;">❄️</div>
           <h3 style="font-family:var(--font-head);font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:6px;">Debt Snowball Calculator</h3>
           <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:auto;padding-bottom:16px;">See your debt-free date. Snowball or avalanche method.</p>
           <span style="font-family:var(--font-head);font-weight:800;font-size:1.3rem;color:var(--navy);">$14</span>
+          <a href="https://buy.stripe.com/00w14g7wEbQ73Td16j57W01" target="_blank" style="display:block;margin-top:14px;background:var(--accent);color:#fff;font-family:var(--font-head);font-weight:700;font-size:0.9rem;text-align:center;padding:10px 16px;border-radius:8px;text-decoration:none;">Buy Now →</a>
         </div>
         <div style="background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:28px 24px;text-align:left;display:flex;flex-direction:column;">
           <div style="font-size:1.5rem;margin-bottom:10px;">🎯</div>
           <h3 style="font-family:var(--font-head);font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:6px;">Savings Goal Tracker</h3>
           <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:auto;padding-bottom:16px;">10 goals, progress bars, projected finish dates.</p>
           <span style="font-family:var(--font-head);font-weight:800;font-size:1.3rem;color:var(--navy);">$14</span>
+          <a href="https://buy.stripe.com/aFa28k5owaM33TdbKX57W02" target="_blank" style="display:block;margin-top:14px;background:var(--accent);color:#fff;font-family:var(--font-head);font-weight:700;font-size:0.9rem;text-align:center;padding:10px 16px;border-radius:8px;text-decoration:none;">Buy Now →</a>
         </div>
         <div style="background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:28px 24px;text-align:left;display:flex;flex-direction:column;">
           <div style="font-size:1.5rem;margin-bottom:10px;">💼</div>
           <h3 style="font-family:var(--font-head);font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:6px;">Freelance Invoice Tracker</h3>
           <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:auto;padding-bottom:16px;">500 invoices, client manager, income dashboard.</p>
           <span style="font-family:var(--font-head);font-weight:800;font-size:1.3rem;color:var(--navy);">$15</span>
+          <a href="https://buy.stripe.com/7sY5kweZ6cUb89tbKX57W03" target="_blank" style="display:block;margin-top:14px;background:var(--accent);color:#fff;font-family:var(--font-head);font-weight:700;font-size:0.9rem;text-align:center;padding:10px 16px;border-radius:8px;text-decoration:none;">Buy Now →</a>
         </div>
         <div style="background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:28px 24px;text-align:left;display:flex;flex-direction:column;">
           <div style="font-size:1.5rem;margin-bottom:10px;">💡</div>
           <h3 style="font-family:var(--font-head);font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:6px;">Side Hustle Income Tracker</h3>
           <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:auto;padding-bottom:16px;">P&L by income source. Tax-ready, Schedule C format.</p>
           <span style="font-family:var(--font-head);font-weight:800;font-size:1.3rem;color:var(--navy);">$15</span>
+          <a href="https://buy.stripe.com/3cI9AM2ckbQ7fBVbKX57W04" target="_blank" style="display:block;margin-top:14px;background:var(--accent);color:#fff;font-family:var(--font-head);font-weight:700;font-size:0.9rem;text-align:center;padding:10px 16px;border-radius:8px;text-decoration:none;">Buy Now →</a>
         </div>
       </div>
       <!-- Bundles -->
@@ -1275,6 +1339,15 @@
       </p>
 
       <div class="cta__form">
+        <!-- ============================================================
+             MAILERLITE EMBEDDED FORM — CLOSING CTA SECTION
+             ============================================================
+             Same as the hero section above: paste Snippet B here too,
+             OR use the same form div — MailerLite will render it in both places.
+             <div class="ml-embedded" data-form="YOUR_FORM_ID"></div>
+             ============================================================ -->
+        <!-- PASTE MailerLite Snippet B HERE: <div class="ml-embedded" data-form="YOUR_FORM_ID"></div> -->
+
         <form action="https://formspree.io/f/xlgkdkzd" method="POST">
           <input type="hidden" name="_subject" value="New MyClearBudget Early Access Signup" />
           <input type="hidden" name="_next" value="https://myclearbudget.com/?success=true" />
