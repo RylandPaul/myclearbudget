@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRRRR Strategy Calculator | MyClearBudget</title>
+  <meta name="description" content="Know if a real estate deal is a BUY, HOLD, or WALK AWAY — before you commit. The BRRRR Strategy Calculator gives every number you need in one spreadsheet." />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TZXQYHPH4L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TZXQYHPH4L');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1B2A4A;
+      --navy-2: #253a63;
+      --gold:   #F4A61F;
+      --gold-2: #e09900;
+      --white:  #FFFFFF;
+      --off-white: #F8F9FB;
+      --gray-300: #CBD5E0;
+      --gray-500: #718096;
+      --gray-700: #2D3748;
+      --green:  #22c55e;
+      --red:    #ef4444;
+      --font-head: 'Sora', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    body { font-family: var(--font-body); color: var(--gray-700); background: var(--white); }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    nav {
+      background: var(--navy);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo { font-family: var(--font-head); font-weight: 800; color: var(--white); font-size: 1.1rem; }
+    .nav-logo span { color: var(--gold); }
+    .nav-back { font-family: var(--font-head); font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+    .nav-back:hover { color: var(--white); }
+
+    /* HERO */
+    .hero {
+      background: var(--navy);
+      padding: 72px 24px 80px;
+      text-align: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(244,166,31,0.18);
+      color: var(--gold);
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--white);
+      line-height: 1.15;
+      max-width: 760px;
+      margin: 0 auto 20px;
+    }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.65;
+    }
+    .hero-cta { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 16px 40px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-gold:hover { background: var(--gold-2); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      color: rgba(255,255,255,0.85);
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 12px 28px;
+      border-radius: 10px;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      cursor: pointer;
+      display: inline-block;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--white); color: var(--white); }
+    .hero-note { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-top: 8px; }
+
+    /* TRUST BAR */
+    .trust {
+      background: var(--off-white);
+      border-bottom: 1px solid var(--gray-300);
+      padding: 20px 24px;
+      text-align: center;
+    }
+    .trust-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .trust-item {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      font-family: var(--font-head);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .trust-item svg { flex-shrink: 0; }
+
+    /* PROBLEM */
+    .problem {
+      padding: 72px 24px;
+      background: var(--white);
+      text-align: center;
+    }
+    .section-tag {
+      display: inline-block;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 1rem;
+      color: var(--gray-500);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+      text-align: left;
+    }
+    .pain-card {
+      background: var(--off-white);
+      border: 1px solid var(--gray-300);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .pain-card .icon { font-size: 1.5rem; margin-bottom: 12px; }
+    .pain-card h3 {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .pain-card p { font-size: 0.88rem; color: var(--gray-500); line-height: 1.6; }
+
+    /* PRODUCT */
+    .product { padding: 80px 24px; background: var(--off-white); }
+    .product-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .product-label {
+      display: inline-block;
+      background: rgba(244,166,31,0.15);
+      color: var(--gold-2);
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .product h2 {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .product-desc {
+      font-size: 0.95rem;
+      color: var(--gray-500);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .feature-list { list-style: none; margin-bottom: 32px; }
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--gray-700);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--gray-300);
+      line-height: 1.5;
+    }
+    .feature-list li:last-child { border-bottom: none; }
+    .check { color: var(--green); font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+    .product-buy {
+      background: var(--white);
+      border: 1px solid var(--gray-300);
+      border-radius: 16px;
+      padding: 32px;
+      position: sticky;
+      top: 24px;
+    }
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .price-current {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 2.4rem;
+      color: var(--navy);
+    }
+    .price-was {
+      font-size: 1rem;
+      color: var(--gray-500);
+      text-decoration: line-through;
+    }
+    .price-badge {
+      background: #dcfce7;
+      color: #15803d;
+      font-family: var(--font-head);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .buy-detail { font-size: 0.85rem; color: var(--gray-500); margin-bottom: 24px; line-height: 1.6; }
+    .btn-buy {
+      display: block;
+      width: 100%;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1rem;
+      text-align: center;
+      padding: 16px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 12px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-buy:hover { background: var(--gold-2); transform: translateY(-2px); }
+    .guarantee {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      margin-top: 16px;
+    }
+    .tabs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .tab-pill {
+      background: var(--off-white);
+      border: 1px solid var(--gray-300);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.8rem;
+      font-family: var(--font-head);
+      font-weight: 600;
+      color: var(--navy);
+      text-align: center;
+    }
+
+    /* OUTPUTS */
+    .outputs { padding: 72px 24px; background: var(--white); text-align: center; }
+    .outputs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+      text-align: left;
+    }
+    .output-card {
+      background: var(--navy);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .output-card .metric {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .output-card h3 {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .output-card p { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+    /* CHECKLIST / LEAD MAGNET */
+    .lead { padding: 72px 24px; background: var(--navy); text-align: center; }
+    .lead h2 {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    .lead p { font-size: 1rem; color: rgba(255,255,255,0.7); max-width: 520px; margin: 0 auto 36px; line-height: 1.65; }
+    .lead-form {
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .lead-form input[type="email"] {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .lead-form input[type="email"]::placeholder { color: rgba(255,255,255,0.35); }
+    .lead-form input[type="email"]:focus { border-color: var(--gold); }
+    .lead-form button {
+      width: 100%;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .lead-form button:hover { background: var(--gold-2); }
+    .lead-note { font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-top: 12px; }
+    .checklist-preview {
+      max-width: 440px;
+      margin: 28px auto 0;
+      text-align: left;
+    }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .check-item:last-child { border-bottom: none; }
+    .check-icon { color: var(--gold); font-size: 0.9rem; }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); }
+    footer a { color: rgba(255,255,255,0.5); margin: 0 8px; }
+    footer a:hover { color: var(--white); }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      .product-inner { grid-template-columns: 1fr; gap: 32px; }
+      .product-buy { position: static; }
+      .tabs-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">My<span>Clear</span>Budget</a>
+    <a href="/" class="nav-back">← All Tools</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag">BRRRR Strategy Calculator</div>
+    <h1>Know If a Deal is a <em>BUY, HOLD,<br />or WALK AWAY</em> — Before You Commit</h1>
+    <p>Stop guessing on real estate deals. The BRRRR Strategy Calculator runs every number — cash flow, refinance outcome, cash-on-cash return, and a final verdict — in one spreadsheet.</p>
+    <div class="hero-cta">
+      <a href="https://www.etsy.com/shop/myclearbudget" class="btn-gold" target="_blank">Get the Calculator on Etsy → $38</a>
+      <a href="#checklist" class="btn-outline">Get the Free BRRRR Checklist First</a>
+      <p class="hero-note">One-time purchase · Instant download · Excel + Google Sheets</p>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F4A61F" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Instant download
+      </div>
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F4A61F" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Excel + Google Sheets
+      </div>
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F4A61F" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        7 analysis tabs
+      </div>
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F4A61F" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Built by a commercial builder
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="container">
+      <div class="section-tag">The Problem</div>
+      <h2 class="section-title">Most BRRRR deal analyses are incomplete.<br />Or just wrong.</h2>
+      <p class="section-sub">The numbers that look good on the surface often hide the problems underneath. Here's what most investors miss.</p>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="icon">🔨</div>
+          <h3>Rehab estimates are too low</h3>
+          <p>Electrical, HVAC, plumbing, permits — the real numbers are 30-50% higher than most first estimates. When the actual bill hits, the deal breaks.</p>
+        </div>
+        <div class="pain-card">
+          <div class="icon">📉</div>
+          <h3>ARV is optimistic, not realistic</h3>
+          <p>The bank's appraiser uses different comps than you do. If your deal only works at one specific ARV, it doesn't work.</p>
+        </div>
+        <div class="pain-card">
+          <div class="icon">💸</div>
+          <h3>Holding costs aren't modeled</h3>
+          <p>Every month in rehab costs money — taxes, insurance, utilities, loan interest. A 3-month job that runs 6 months can add $8-12k you didn't budget.</p>
+        </div>
+        <div class="pain-card">
+          <div class="icon">🏦</div>
+          <h3>Refinance math is assumed, not calculated</h3>
+          <p>At 7%+ rates, the refi payment changes everything. The deal that worked at 4.5% may be cash-flow negative today. You need to model the actual number.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT -->
+  <section class="product" id="calculator">
+    <div class="container">
+      <div class="product-inner">
+        <!-- LEFT: Features -->
+        <div>
+          <div class="product-label">BRRRR Strategy Calculator</div>
+          <h2>Every number you need.<br />One spreadsheet.</h2>
+          <p class="product-desc">7 analysis tabs that take you from acquisition through refinance — with a final BUY / HOLD / WALK AWAY verdict on every deal.</p>
+
+          <ul class="feature-list">
+            <li><span class="check">✓</span> <div><strong>Deal Verdict:</strong> BUY, HOLD, or WALK AWAY — scored automatically from your inputs</div></li>
+            <li><span class="check">✓</span> <div><strong>Purchase & Rehab tab:</strong> Itemized rehab budget with 20% contingency built in</div></li>
+            <li><span class="check">✓</span> <div><strong>Rental Income & Expenses:</strong> Cash flow, vacancy rate, NOI, cap rate</div></li>
+            <li><span class="check">✓</span> <div><strong>Refinance Analysis:</strong> Max loan at LTV, cash returned, infinite return check</div></li>
+            <li><span class="check">✓</span> <div><strong>3-Scenario Modeling:</strong> Best case, realistic, and worst case — all three at once</div></li>
+            <li><span class="check">✓</span> <div><strong>BRRRR Scorecard:</strong> Deal score 0-100 with individual metric grades</div></li>
+            <li><span class="check">✓</span> <div><strong>Cash Flow Analysis:</strong> 10-year projection, break-even analysis</div></li>
+          </ul>
+
+          <div class="tabs-grid">
+            <div class="tab-pill">📋 Dashboard</div>
+            <div class="tab-pill">🔨 Purchase & Rehab</div>
+            <div class="tab-pill">🏠 Rental Analysis</div>
+            <div class="tab-pill">🏦 Refinance</div>
+            <div class="tab-pill">💰 Cash Flow</div>
+            <div class="tab-pill">📊 BRRRR Scorecard</div>
+            <div class="tab-pill">🚀 Getting Started</div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Buy Card -->
+        <div class="product-buy">
+          <div class="price-row">
+            <span class="price-current">$38</span>
+            <span class="price-was">$76</span>
+            <span class="price-badge">50% off</span>
+          </div>
+          <p class="buy-detail">One-time purchase. Instant digital download. Works in Excel and Google Sheets. Sample deal data pre-filled so you can see how it works immediately.</p>
+
+          <a href="https://www.etsy.com/shop/myclearbudget" target="_blank" class="btn-buy">
+            Get the BRRRR Calculator → $38
+          </a>
+
+          <a href="#checklist" class="btn-outline" style="display:block;width:100%;text-align:center;background:var(--off-white);color:var(--navy);border:1.5px solid var(--gray-300);font-family:var(--font-head);font-weight:700;font-size:0.9rem;padding:12px;border-radius:10px;margin-bottom:16px;">
+            Free Checklist First (no purchase needed)
+          </a>
+
+          <div class="guarantee">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Secure checkout via Etsy · Instant download
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY OUTPUTS -->
+  <section class="outputs">
+    <div class="container">
+      <div class="section-tag">What You Get</div>
+      <h2 class="section-title">The outputs that tell you if a deal is worth doing</h2>
+      <p class="section-sub">Every number calculated automatically. You enter the deal inputs — the spreadsheet does the rest.</p>
+      <div class="outputs-grid">
+        <div class="output-card">
+          <div class="metric">BUY / HOLD / WALK</div>
+          <h3>Deal Verdict</h3>
+          <p>Automatic go/no-go decision based on your inputs and deal score.</p>
+        </div>
+        <div class="output-card">
+          <div class="metric">CoCR %</div>
+          <h3>Cash-on-Cash Return</h3>
+          <p>Actual return on your invested capital after the refinance.</p>
+        </div>
+        <div class="output-card">
+          <div class="metric">$0 - ∞</div>
+          <h3>Capital Remaining</h3>
+          <p>How much of your original investment stays in the deal post-refi.</p>
+        </div>
+        <div class="output-card">
+          <div class="metric">3 Scenarios</div>
+          <h3>Best / Real / Worst</h3>
+          <p>What happens if ARV comes in low or rehab runs over. Know before you commit.</p>
+        </div>
+        <div class="output-card">
+          <div class="metric">0–100</div>
+          <h3>Deal Score</h3>
+          <p>Composite score across all metrics. Under 60? Walk away.</p>
+        </div>
+        <div class="output-card">
+          <div class="metric">10yr</div>
+          <h3>Cash Flow Projection</h3>
+          <p>Month-by-month and year-by-year P&L projection with vacancy modeled in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEAD MAGNET / CHECKLIST -->
+  <section class="lead" id="checklist">
+    <div class="container">
+      <h2>Get the Free BRRRR Deal Checklist</h2>
+      <p>18-point checklist used to evaluate every deal before making an offer. Free. No purchase required. Instant download.</p>
+
+      <div class="lead-form">
+        <form
+          id="brrrr-checklist-form"
+          action="https://formspree.io/f/xlgkdkzd"
+          method="POST"
+        >
+          <input type="hidden" name="source" value="brrrr-checklist-page" />
+          <input type="hidden" name="_subject" value="New BRRRR checklist signup" />
+          <input
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+            required
+            autocomplete="email"
+          />
+          <button type="submit">Send Me the Free Checklist →</button>
+        </form>
+        <p class="lead-note">No spam. Unsubscribe any time. Checklist delivered instantly.</p>
+      </div>
+
+      <div class="checklist-preview">
+        <div class="check-item"><span class="check-icon">✓</span> ARV verified against ≥3 closed comps in last 90 days</div>
+        <div class="check-item"><span class="check-icon">✓</span> Rehab scope itemized (not estimated as a round number)</div>
+        <div class="check-item"><span class="check-icon">✓</span> 20% contingency added to rehab budget</div>
+        <div class="check-item"><span class="check-icon">✓</span> Holding costs calculated per month × expected timeline</div>
+        <div class="check-item"><span class="check-icon">✓</span> Rent verified against active listings (not Zillow estimates)</div>
+        <div class="check-item"><span class="check-icon">✓</span> Post-refi cash flow modeled at current interest rates</div>
+        <div class="check-item"><span class="check-icon">✓</span> Worst-case scenario still breaks even</div>
+        <div class="check-item" style="opacity:0.4"><span class="check-icon">✓</span> 11 more items in the full checklist →</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <a href="/">MyClearBudget</a> ·
+      <a href="/privacy.html">Privacy</a> ·
+      <a href="/terms.html">Terms</a> ·
+      <a href="mailto:myclearbudget@gmail.com">Contact</a>
+    </p>
+    <p style="margin-top:8px;">© 2026 Trailhead Standard, LLC. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Handle form submission
+    const form = document.getElementById('brrrr-checklist-form');
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = form.querySelector('button');
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        try {
+          const resp = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (resp.ok) {
+            form.innerHTML = '<p style="color:#F4A61F;font-family:Sora,sans-serif;font-weight:700;font-size:1rem;text-align:center;padding:20px 0;">✅ Check your inbox — checklist is on its way!</p>';
+          } else {
+            btn.textContent = 'Try Again';
+            btn.disabled = false;
+          }
+        } catch(err) {
+          btn.textContent = 'Try Again';
+          btn.disabled = false;
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
