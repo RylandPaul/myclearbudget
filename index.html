@@ -838,6 +838,39 @@
     }
     .footer__links a:hover { color: rgba(255,255,255,0.85); }
 
+    .footer__stores {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 4px;
+    }
+
+    .footer__stores-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      font-family: var(--font-head);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .footer__stores a {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .footer__stores a:hover { color: var(--accent); }
+
     /* ===========================
        RESPONSIVE
     =========================== */
@@ -1463,6 +1496,12 @@
         <li><a href="/privacy.html">Privacy Policy</a></li>
         <li><a href="/terms.html">Terms</a></li>
       </ul>
+      <div class="footer__stores">
+        <span class="footer__stores-label">Also available on</span>
+        <a href="https://myclearbudget.etsy.com" target="_blank" rel="noopener">🛍️ Etsy</a>
+        <a href="https://payhip.com/myclearbudget" target="_blank" rel="noopener">💳 Payhip</a>
+        <a href="https://myclearbudget.gumroad.com" target="_blank" rel="noopener">🟠 Gumroad</a>
+      </div>
     </div>
   </footer>
 
