@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Thank you! Your 30-Day Money Reset Workbook is on its way." />
+  <title>Your Workbook Is On Its Way | MyClearBudget</title>
+
+  <!-- Prevent indexing of thank-you page -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TZXQYHPH4L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TZXQYHPH4L');
+    // Track thank-you page view as conversion
+    gtag('event', 'book_workbook_thankyou', { event_category: 'conversion', event_label: 'book_landing' });
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #1B2A4A;
+      --navy-dark: #111D35;
+      --navy-mid:  #243358;
+      --accent:    #F4A61F;
+      --text:      #1a1a2e;
+      --muted:     #5a6a8a;
+      --bg:        #f8f9fc;
+      --white:     #ffffff;
+      --radius:    10px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── LOGO BAR ── */
+    .logo-bar {
+      background: var(--navy);
+      padding: 16px 24px;
+      text-align: center;
+    }
+    .logo-bar a {
+      text-decoration: none;
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .logo-bar a span { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(145deg, var(--navy-dark) 0%, var(--navy-mid) 100%);
+      color: var(--white);
+      padding: 72px 24px 64px;
+      text-align: center;
+    }
+    .check-circle {
+      width: 72px;
+      height: 72px;
+      background: rgba(244, 166, 31, 0.15);
+      border: 2px solid rgba(244, 166, 31, 0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-size: 2rem;
+    }
+    .hero h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero p {
+      font-size: 1.0625rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ── NEXT STEPS ── */
+    .next-steps {
+      background: var(--white);
+      padding: 56px 24px;
+    }
+    .next-steps-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-family: 'Sora', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .next-steps h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      font-weight: 800;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 36px;
+      letter-spacing: -0.02em;
+    }
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding: 20px;
+      background: var(--bg);
+      border-radius: 12px;
+      border: 1px solid #e8ecf4;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--accent);
+      color: var(--navy-dark);
+      border-radius: 50%;
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-item h3 {
+      font-family: 'Sora', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .step-item p {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    /* ── RESOURCES ── */
+    .resources {
+      background: var(--bg);
+      padding: 56px 24px;
+    }
+    .resources-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .resources h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      font-weight: 800;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .resources .intro {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9375rem;
+      margin-bottom: 36px;
+    }
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .resource-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 24px 20px;
+      border: 1.5px solid #e8ecf4;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+      display: block;
+    }
+    .resource-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 16px rgba(27, 42, 74, 0.1);
+      transform: translateY(-2px);
+    }
+    .resource-icon { font-size: 1.5rem; margin-bottom: 10px; display: block; }
+    .resource-card h3 {
+      font-family: 'Sora', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .resource-card p {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .resource-link {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--navy-dark);
+      padding: 28px 24px;
+      text-align: center;
+      margin-top: auto;
+    }
+    .footer p {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    .footer a:hover { color: var(--accent); }
+
+    @media (max-width: 480px) {
+      .resource-grid { grid-template-columns: 1fr; }
+      .hero { padding: 56px 20px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGO BAR -->
+  <div class="logo-bar">
+    <a href="https://myclearbudget.com">My<span>Clear</span>Budget</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="check-circle">✅</div>
+    <h1>Your Workbook Is <em>On Its Way</em></h1>
+    <p>Check your email for access to the 30-Day Money Reset Workbook. It should arrive within a few minutes.</p>
+  </section>
+
+  <!-- NEXT STEPS -->
+  <section class="next-steps">
+    <div class="next-steps-inner">
+      <p class="section-label">What Happens Next</p>
+      <h2>Here's What to Expect</h2>
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Check Your Inbox</h3>
+          <p>Your workbook link will arrive in the next few minutes. Check your spam folder if you don't see it.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Download &amp; Save</h3>
+          <p>Open the workbook and save it somewhere you'll actually use it — your desktop, Google Drive, or phone.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Start Day 1 Today</h3>
+          <p>Don't wait for the perfect moment. Open it now, read Day 1, and take the first small step.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section class="resources">
+    <div class="resources-inner">
+      <p class="section-label">While You're Here</p>
+      <h2>Build on Your Financial Foundation</h2>
+      <p class="intro">Additional tools designed to help you build stronger financial habits.</p>
+      <div class="resource-grid">
+        <a class="resource-card" href="https://myclearbudget.etsy.com/listing/1858561524" target="_blank" rel="noopener">
+          <span class="resource-icon">📊</span>
+          <h3>Personal Finance Command Center</h3>
+          <p>The complete budgeting spreadsheet — track income, expenses, savings, and net worth in one place.</p>
+          <span class="resource-link">View on Etsy →</span>
+        </a>
+        <a class="resource-card" href="https://myclearbudget.etsy.com/listing/1876783162" target="_blank" rel="noopener">
+          <span class="resource-icon">💳</span>
+          <h3>Debt Snowball Calculator</h3>
+          <p>Pay off debt faster with a proven payoff strategy and automatic payoff date projections.</p>
+          <span class="resource-link">View on Etsy →</span>
+        </a>
+        <a class="resource-card" href="https://myclearbudget.etsy.com/listing/1876782696" target="_blank" rel="noopener">
+          <span class="resource-icon">🏦</span>
+          <h3>Savings Goal Tracker</h3>
+          <p>Set savings targets, track progress, and stay motivated with visual goal milestones.</p>
+          <span class="resource-link">View on Etsy →</span>
+        </a>
+        <a class="resource-card" href="https://myclearbudget.com" target="_blank" rel="noopener">
+          <span class="resource-icon">📚</span>
+          <h3>Budgeting Resources</h3>
+          <p>Browse all MyClearBudget tools — from budget trackers to real estate analyzers.</p>
+          <span class="resource-link">Explore →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>
+      &copy; 2026 <a href="https://myclearbudget.com">MyClearBudget</a> &mdash; a product of Trailhead Standard, LLC &nbsp;|&nbsp;
+      <a href="https://myclearbudget.com">Home</a>
+    </p>
+  </footer>
+
+</body>
+</html>
