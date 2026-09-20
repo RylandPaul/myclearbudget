@@ -991,27 +991,18 @@
     msg.style.display = 'none';
 
     try {
-      const res = await fetch('https://connect.mailerlite.com/api/subscribers', {
-        method: 'POST',
-        headers: {
-          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiNjkwNTY3ZWNjNmE0NTc5Yzc2NWIzMzFmYmNkZjdhZjM4YTQ1MTkwNmFlMTBmNmY2OWZiOGVhMDVjOTk0MTI2ZTYwNjRkYzNkODM5NTE1YjYiLCJpYXQiOjE3ODEwMDI4MDIuMzUzMzI4LCJuYmYiOjE3ODEwMDI4MDIuMzUzMzMsImV4cCI6NDkzNjY3NjQwMi4zNDg2NzYsInN1YiI6IjI0MzIzNDUiLCJzY29wZXMiOltdfQ.Q3ZPNvlkZtYlcqyFzXhLoEYGNNyFDL4zpedpryVyHogCV3p3o8hndJ3YCihwPCvdzMyRkIs_BGarTFG21DYCm9o0Rfyt3IIpTKhHvspuDZFJyOoU2fUCfYAVEz-K6xqc1qtTgmzw6cj76RErFEYXstghfLaN16S_ICGI6ICkn4gywdYC1Gp2wX6q_BbrwBnuNvxS3B5mIChhqNCkNyBBC-XwckLsJ6SVvlwAE23K7ehEwSDG0Njvg0ovU9wnoLM97C0DDCpx7nBN6cVXYdh720obkj21GD0hnRNMOM1GW5YW7vG5os5zIXfmeADbnmBrJyGd9hnGnTjci7D3xVSkoFnac5uGVqsUSd6QIBBPHtpWrji0tg6hGjAZuVZOJPwvsZb9lYNYFqxzyc7wabzMI4-e4BMtYKkVirriPriTTvzrw5SgMCDkd2IVTo47WrW83VrSPd0EJ8PbYIFQMdAJV287bHGLwbfdjdCE5825mKAsSkxuI25eWFjkv3Oq_zCL9o8cu3ej0gGsgdQUDjRKfo8PtRvr_nckj08NEPpo3v4PZ0HFFDOOTRiHB0HwA8BeoqYT82B6JmGXypwe81JPGbvATYmRsuvXSt52R1n4XXKTB5K6OIdXkoLFV8c7fRPJMlb2Y_Y4vQeMlNDAUjI6QLP3A1ru-pSNU5bN3BxSpsA',
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          email: email,
-          groups: ['190553623419160153'],
-          status: 'active'
-        })
+      const res = await window.MyClearBudgetSignup.subscribe({
+        email,
+        source: 'book'
       });
 
-      if (res.ok || res.status === 409) {
+      if (res.ok) {
         // 409 = already subscribed — still a success from the user's perspective
         emailInput.value  = '';
-        btn.textContent   = '✓ You're in!';
+        btn.textContent   = '✓ You\'re in!';
         msg.style.display = 'block';
         msg.style.color   = '#4ade80';
-        msg.textContent   = 'Got it! We'll let you know when new tools drop.';
+        msg.textContent   = 'Got it! We\'ll let you know when new tools drop.';
         if (typeof gtag === 'function') {
           gtag('event', 'notify_me_signup', { event_category: 'lead', event_label: 'homepage_cta' });
         }
@@ -1019,7 +1010,7 @@
         throw new Error('HTTP ' + res.status);
       }
     } catch (err) {
-      console.error('MailerLite error:', err);
+      console.error('Signup failed');
       btn.disabled    = false;
       btn.textContent = 'Notify Me';
       msg.style.display = 'block';
@@ -1038,5 +1029,7 @@
     }
   });
 </script>
+<script src="/assets/signup-config.js"></script>
+<script src="/assets/signup.js"></script>
 </body>
 </html>
